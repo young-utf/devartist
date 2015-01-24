@@ -5,23 +5,40 @@
 .navbar-content-center i{
   font-size: 35px;
   margin-left: 10px;
-  line-height: 50px;
+  line-height: 60px;
+}
+
+.navbar-fixed-bottom {
+  height: 58px;
 }
 
 .footer-left {
   width: 33%;
   float: left;
-  line-height: 50px;
+  line-height: 60px;
+}
+
+.footer-left span {
+  overflow: hidden;
 }
 
 .footer-center {
   width: 33%;
   float: left;
-  line-height: 50px;
+  line-height: 60px;
+}
+
+.footer-center:hover {
+  background: #fcfcfc;
 }
 
 .footer-right {
   width: 33%;
   float: left;
-  line-height: 50px;
+}
+
+#goto-about-yunmi {
+  color: #333333;
+  text-decoration: none;
+  font-size: 16px;
 }
