@@ -3,7 +3,25 @@
 }
 
 .navbar-content-center i{
-  font-size: 40px;
+  font-size: 35px;
   margin-left: 10px;
+  line-height: 50px;
+}
+
+.footer-left {
+  width: 33%;
+  float: left;
+  line-height: 50px;
+}
+
+.footer-center {
+  width: 33%;
+  float: left;
+  line-height: 50px;
+}
+
+.footer-right {
+  width: 33%;
+  float: left;
   line-height: 50px;
 }

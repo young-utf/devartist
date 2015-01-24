@@ -1,15 +1,21 @@
+.home-title {
+  text-align: center;
+  padding: 5px 0 20px 0;
+}
+
 .home-title-text {
   font-size: 50px;
-  text-align: center;
 }
 
 .carousel-control.left {
   width: 60px;
   background-image: none;
+  color: #dddddd;
 }
 
 .carousel-control.right {
   width: 60px;
   background-image: none;
+  color: #dddddd;
 }
 
