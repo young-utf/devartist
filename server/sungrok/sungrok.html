@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+	<title></title>
+
+  <style>
+    @charset "UTF-8";
+    /* CSS Document */
+
+    *{margin:0; padding:0;}
+    /*body{background:#f0ebe0;}*/
+
+
+    body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,
+    h6,pre,code,form,fieldset,legend,input,
+    textarea,p,blockquote,th,td{margin:0;padding:0;}
+    img{border:none;vertical-align:top;}
+    fieldset{border:none;}
+    ul,li{list-style:none;}
+    input,select,button,select{vertical-align:middle;}
+    h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+    address,caption,cite,code,
+    dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+
+    .all{
+      width: 100%;
+      height: 650px;
+      background: white;
+
+    }
+
+    .top{
+      width: 100%;
+      height: 70px;
+      background: #52b3d9;
+      float: left;
+      font-size: 60px;
+      text-align: center;
+      margin-top: 3%;
+      color: white;
+    }
+
+    .section{
+      width: 100%;
+      height: 400px;
+      background: white;
+      float: left;
+      text-align: center;
+    }
+
+    .sec1{
+      width: 100%;
+      height: 80%;
+      background: white;
+      float: left;
+    }
+
+    .sec2{
+      width: 100%;
+      height: 20%;
+      background: white;
+      float: left;
+    }
+
+    button{
+      width: 200px;
+      height: 50px;
+      /*border-width: 0px;
+      border-radius: 5px;*/
+      background: #52b3d9;
+      cursor: pointer;
+      outline: 0;
+      border-color: #81cfe0;
+      color: white;
+      font-size: 20px;
+    }
+
+    .myButton {
+
+      background: linear-gradient(to bottom, #52B3D9 5%, #3C8BAA 100%);
+      /*-moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
+      -webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;*/
+      /*box-shadow: 0px 0px 0px 2px #ADE7FE;*/
+      /*background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7892c2), color-stop(1, #476e9e));
+      background:-moz-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+      background:-webkit-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+      background:-o-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+      background:-ms-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+      background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
+      background-color:#7892c2;*/
+      -moz-border-radius:10px;
+      -webkit-border-radius:10px;
+      border-radius:10px;
+      border:1px solid #3AAAD6;
+      display:inline-block;
+      cursor:pointer;
+      color:white;
+      font-family:arial;
+      font-size:18px;
+      padding:12px 37px;
+      text-decoration:none;
+      text-shadow:0px 1px 0px #283966;
+      outline: 0
+
+    }
+    .myButton:hover {
+      /*box-shadow: 0px 0px 0px 2px #9fb4f2;*/
+      border:1px solid #476e9e;
+
+      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #7892c2));
+      background:-moz-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+      background:-webkit-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+      background:-o-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+      background:-ms-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+      background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#7892c2',GradientType=0);
+      background-color:#476e9e;
+    }
+    .myButton:active {
+      position:relative;
+      top:1px;
+    }
+
+
+
+    textarea{
+      margin-top: 10px;
+      width: 590px;
+      height: 290px;
+      resize: none;
+      border-width: 2px;
+      border-radius: 5px;
+      padding-top: 10px;
+      padding-left: 10px;
+      border-color: #;
+      outline: 0
+
+
+    }
+
+
+    .footer{
+      width: 100%;
+      height: 50px;
+      float: left;
+      background: #6c7a89;
+      line-height: 50px;
+      text-align: center;
+      color: white;
+    }
+
+    .footer a{color:white;
+      text-decoration: none;
+
+    }
+
+    .footer a:hover{ color: #ecf0f1;
+      text-decoration: none;
+
+
+    }
+
+    .result {
+      font-size: 20px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+ <div class="all">
+
+  <div class="top"> 
+    <span>UTF-8</span>
+  </div>
+
+  <div class="section">
+  <!--  <input type="text" size="100" value="성록아입력해라"> -->
+   <div class="sec1">
+    <textarea placeholder="성록아 입력해라" id="text"></textarea>
+   </div>
+   <div class="result">
+     result = <span id="result"></span>
+   </div>
+   <div class="sec2">
+    <a href="#" class="myButton" onclick="cal();">눌러봐 성록아</a>
+   </div>
+  </div>
+
+   <div class="footer">
+
+    <a href="http://www.facebook.com/profile.php?id=100003158300143">@
+    KO</a>
+
+    /
+
+    <a href="http://www.facebook.com/young.moon.925">@YoungMOOOON </a>
+
+   </div>
+
+
+   <script>
+     var result = false;
+     var text = function () {
+       var result = [];
+       var textarea = document.getElementById('text').value.trim();
+       textarea = textarea.split(/[\s,]+/);
+      
+       console.log(textarea);
+       var collector = function (t) {
+         if (t == "The" || t == "the" || t == "a" || t == "an" || t =='.' || t == "A") {
+           return;
+         } else {
+           result.push(t);
+           return;
+         }
+       }
+
+       textarea.forEach(collector);
+       console.log(result.length);
+       return result.length;
+
+     }
+
+     window.cal = function () {
+       document.getElementById('result').innerText = text();
+     }
+   </script>
+
+
+ </div>
+</body>
+</html>

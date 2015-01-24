@@ -6,9 +6,14 @@
 
 module.exports = function (app) {
   var path = require('path');
+
+  app.route('/sungrok')
+    .get(function (req, res) {
+      res.sendFile('sungrok.html', {root: path.join(__dirname, '../server/sungrok')});
+    });
+
   app.route('/*')
     .get(function (req, res) {
-      console.log(path.join(__dirname, '../client'));
       res.sendFile('index.html', {root: path.join(__dirname, '../client')});
     });
 };
