@@ -6,6 +6,10 @@
 angular.module('pupu')
   .config(function ($routeProvider) {
     $routeProvider
+      .when('/about', {
+        templateUrl: 'app/about/about.html',
+        controller: 'AboutCtrl'
+      })
       .when('/gallery', {
         templateUrl: 'app/gallery/gallery.html',
         controller: 'GalleryCtrl'
