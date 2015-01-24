@@ -1,0 +1,9 @@
+.navbar-content-center {
+  text-align: center;
+}
+
+.navbar-content-center i{
+  font-size: 40px;
+  margin-left: 10px;
+  line-height: 50px;
+}

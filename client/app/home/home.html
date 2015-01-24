@@ -1,0 +1,22 @@
+<div class="home-main">
+  <div class="home-title">
+    <p class="home-title-text">
+      일/상/을/담/다
+    </p>
+  </div>
+  
+  <div class="home-slideshow">
+    <div ng-controller="HomeCtrl">
+      <div>
+        <carousel interval="myInterval">
+          <slide ng-repeat="slide in slides" active="slide.active">
+            <img ng-src="{{slide.image}}" style="margin:auto;">
+            <div class="carousel-caption">
+              <h4>Title : {{slide.text}}</h4>
+            </div>
+          </slide>
+        </carousel>
+      </div>
+    </div>
+  </div>
+</div>

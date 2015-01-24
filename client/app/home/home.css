@@ -1,0 +1,15 @@
+.home-title-text {
+  font-size: 50px;
+  text-align: center;
+}
+
+.carousel-control.left {
+  width: 60px;
+  background-image: none;
+}
+
+.carousel-control.right {
+  width: 60px;
+  background-image: none;
+}
+

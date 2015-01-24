@@ -2,27 +2,61 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <title></title>
+  <title>Yunmi's</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="assets/style/a.css"/>
 
-  <!-- bower:css injection -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog.css" />
+  <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog-theme-default.css" />
+  <link rel="stylesheet" href="bower_components/font-awsome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <!-- endbower -->
 
-  <!-- end bower -->
+  <!-- injector:css -->
+  <link rel="stylesheet" href="app/app.css">
+  <link rel="stylesheet" href="app/home/home.css">
+  <link rel="stylesheet" href="components/footer/footer.css">
+  <link rel="stylesheet" href="components/navbar/navbar.css">
+  <!-- endinjector -->
 </head>
-<body>
+<body ng-app="pupu">
 
+  <navbar></navbar>
+  <div class="app-wrap">
+    <div ng-view=""></div>
+  </div>
+  <footer></footer>
 
-
-<!-- bower:js injection -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-cookie/angular-cookie.js"></script>
-  <script src="bower_components/angular-masonry/angular-masonry.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/ngDialog/js/ngDialog.js"></script>
-  <script src="bower_components/underscore/underscore.js"></script>
-
-<!-- end bower -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/ngDialog/js/ngDialog.js"></script>
+<script src="bower_components/get-style-property/get-style-property.js"></script>
+<script src="bower_components/get-size/get-size.js"></script>
+<script src="bower_components/eventie/eventie.js"></script>
+<script src="bower_components/doc-ready/doc-ready.js"></script>
+<script src="bower_components/eventEmitter/EventEmitter.js"></script>
+<script src="bower_components/matches-selector/matches-selector.js"></script>
+<script src="bower_components/outlayer/item.js"></script>
+<script src="bower_components/outlayer/outlayer.js"></script>
+<script src="bower_components/masonry/masonry.js"></script>
+<script src="bower_components/imagesloaded/imagesloaded.js"></script>
+<script src="bower_components/angular-masonry/angular-masonry.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<!-- endbower -->
+  <script src="app/app.js"></script>
+<!-- injector:js -->
+<script src="app/home/home.controller.js"></script>
+<script src="app/router.js"></script>
+<script src="components/footer/footer.directive.js"></script>
+<script src="components/navbar/navbar.directive.js"></script>
+<!-- endinjector -->
 </body>
 </html>

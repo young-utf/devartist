@@ -5,8 +5,10 @@
 'use strict';
 
 module.exports = function (app) {
+  var path = require('path');
   app.route('/*')
     .get(function (req, res) {
-      res.sendFile('client/index.html');
+      console.log(path.join(__dirname, '../client'));
+      res.sendFile('index.html', {root: path.join(__dirname, '../client')});
     });
 };
