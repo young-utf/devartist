@@ -32,4 +32,9 @@ angular.module('pupu', [
         }
       }
     }
+  })
+  .run(function ($rootScope, $location) {
+    $rootScope.$on('$routeChangeStart', function (event, next) {
+      $('.navbar-nav li').removeClass('active');
+    });
   });
