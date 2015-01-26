@@ -6,6 +6,9 @@
 
 module.exports = function (app) {
   var path = require('path');
+  var nodemailer = require('nodemailer');
+  var clientip = require('client-ip');
+
 
   app.route('/sungrok')
     .get(function (req, res) {
@@ -14,6 +17,33 @@ module.exports = function (app) {
 
   app.route('/*')
     .get(function (req, res) {
+      var ip = clientip(req);
+      var transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+          user: 'young.utf@gmail.com',
+          pass: 'young123123'
+        }
+      });
+
+      var mailOptions = {
+        from: 'fff',
+        to: 'youngmmmoon@gmail.com',
+        subject: 'Server Requested',
+        text: '',
+        html: 'from ' + ip
+      }
+
+      if (process.env.NODE_ENV) {
+        transporter.sendMail(mailOptions, function (err, info) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log('EMAILED !');
+          }
+        });
+      }
+
       res.sendFile('index.html', {root: path.join(__dirname, '../client')});
     });
 };
