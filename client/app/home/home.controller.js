@@ -10,7 +10,7 @@ angular.module('pupu')
     $scope.addSlide = function() {
       slides.push({
         image: 'assets/images/main-art8.jpg',
-        text: '영원'
+        text: '영원히'
       },{
         image: 'assets/images/main-art1.jpg',
         text: '하늘 다리'
