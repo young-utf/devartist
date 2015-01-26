@@ -1,0 +1,22 @@
+.about-main {
+  margin-bottom: 100px;
+}
+
+.about-main-image {
+  margin: 50px 0 0 0;
+  text-align: center;
+}
+
+.well {
+  font-size: 50px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+.about-main-image img {
+  width: 100%;
+}
+
+.about-intro {
+
+}
