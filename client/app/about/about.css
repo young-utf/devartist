@@ -8,15 +8,23 @@
 }
 
 .well {
-  font-size: 50px;
+  font-size: 30px;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
+  width: 600px;
+  margin: 0 auto;
 }
 
 .about-main-image img {
-  width: 100%;
+  width: 600px;
 }
 
-.about-intro {
-
+@media screen and (max-width: 550px) {
+  .about-main-image img {
+    width: 95%;
+  }
+  .well {
+    width: 95%;
+  }
 }
+
