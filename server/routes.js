@@ -8,6 +8,7 @@ module.exports = function (app) {
   var path = require('path');
   var nodemailer = require('nodemailer');
   var clientip = require('client-ip');
+  var geoip = require('geoip-lite');
 
 
   app.route('/sungrok')
@@ -18,6 +19,8 @@ module.exports = function (app) {
   app.route('/*')
     .get(function (req, res) {
       var ip = clientip(req);
+      var geo = geoip.lookup(ip);
+      logger.info(JSON.stringify(geo));
       var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
@@ -31,7 +34,7 @@ module.exports = function (app) {
         to: 'youngmmmoon@gmail.com',
         subject: 'Server Requested',
         text: '',
-        html: 'from ' + ip
+        html: 'from ' + ip + '<br> ' + JSON.stringify(geo)
       }
 
       if (process.env.NODE_ENV) {
