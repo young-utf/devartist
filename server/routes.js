@@ -20,25 +20,28 @@ module.exports = function (app) {
     .get(function (req, res) {
       var ip = clientip(req);
       var geo = geoip.lookup(ip);
+      console.log(ip);
       console.log(JSON.stringify(geo));
-      var transporter = nodemailer.createTransport({
-        service: 'Gmail',
-        auth: {
-          user: 'young.utf@gmail.com',
-          pass: 'young123123'
-        }
-      });
-
-      var mailOptions = {
-        from: 'fff',
-        to: 'youngmmmoon@gmail.com',
-        subject: 'Server Requested',
-        text: '',
-        html: 'from ' + ip + '<br> country : ' + geo.country + ', region : ' +
-          geo.region + ', city : ' + geo.city + ', ll : ' + geo.ll
-      }
 
       if (process.env.NODE_ENV && geo.country == 'KR') {
+
+        var transporter = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+            user: 'young.utf@gmail.com',
+            pass: 'young123123'
+          }
+        });
+
+        var mailOptions = {
+          from: 'fff',
+          to: 'youngmmmoon@gmail.com',
+          subject: 'Server Requested',
+          text: '',
+          html: 'from ' + ip + '<br> country : ' + geo.country + ', region : ' +
+          geo.region + ', city : ' + geo.city + ', ll : ' + geo.ll
+        }
+
         transporter.sendMail(mailOptions, function (err, info) {
           if (err) {
             console.log(err);

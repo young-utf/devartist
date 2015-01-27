@@ -5,19 +5,5 @@
     </span>
      - kimodyssey
   </div>
-  
-  <div class="home-slideshow">
-    <div ng-controller="HomeCtrl">
-      <div>
-        <carousel interval="myInterval">
-          <slide ng-repeat="slide in slides" active="slide.active">
-            <img ng-src="{{slide.image}}" style="margin:auto;">
-            <div class="carousel-caption">
-              <h4>Title : {{slide.text}}</h4>
-            </div>
-          </slide>
-        </carousel>
-      </div>
-    </div>
-  </div>
+ <slide-fade></slide-fade>
 </div>

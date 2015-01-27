@@ -6,9 +6,7 @@ angular.module('pupu')
   .controller('HomeCtrl', function ($scope, $rootScope) {
     console.log('in home');
     $scope.myInterval = 3500;
-    var slides = $scope.slides = [];
-    $scope.addSlide = function() {
-      slides.push({
+    $scope.slides = [{
         image: 'assets/images/main-art8.jpg',
         text: '영원히'
       },{
@@ -29,9 +27,25 @@ angular.module('pupu')
       },{
         image: 'assets/images/main-art5.jpg',
         text: '밤, 도로'
-      });
-    };
-    $scope.addSlide();
+      }];
+  })
+  .directive('slideFade', function ($timeout) {
+    return {
+      templateUrl: 'app/home/slide.html',
+      link: function (scope, el, attr) {
+        $timeout(function () {
+          var index = 0;
+          slideShow(index);
+          function slideShow(index) {
+            if (index == scope.slides.length)
+              index = 0;
+            $('#slide' + index).fadeIn(5000, function () {
+              $('#slide' + index).hide();
+              index++;
+              slideShow(index);
+            });
+          }
+        });
+      }
+    }
   });
-
-

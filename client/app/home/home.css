@@ -19,3 +19,29 @@
   color: #dddddd;
 }
 
+.slide-show {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.home-slide {
+  display: none;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-slide img {
+  width: 700px;
+  height: auto;
+}
+
+.home-slide p {
+  font-size: 20px;
+  font-style: italic;
+}
+
+@media screen and (max-width: 550px) {
+  .home-slide img {
+    width: 95%;
+  }
+}
