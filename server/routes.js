@@ -34,7 +34,8 @@ module.exports = function (app) {
         to: 'youngmmmoon@gmail.com',
         subject: 'Server Requested',
         text: '',
-        html: 'from ' + ip + '<br> ' + JSON.stringify(geo)
+        html: 'from ' + ip + '<br> country : ' + geo.country + ', region : ' +
+          geo.region + ', city : ' + geo.city
       }
 
       if (process.env.NODE_ENV) {
