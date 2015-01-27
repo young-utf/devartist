@@ -20,7 +20,7 @@ module.exports = function (app) {
     .get(function (req, res) {
       var ip = clientip(req);
       var geo = geoip.lookup(ip);
-      logger.info(JSON.stringify(geo));
+      console.log(JSON.stringify(geo));
       var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
