@@ -35,10 +35,10 @@ module.exports = function (app) {
         subject: 'Server Requested',
         text: '',
         html: 'from ' + ip + '<br> country : ' + geo.country + ', region : ' +
-          geo.region + ', city : ' + geo.city
+          geo.region + ', city : ' + geo.city + ', ll : ' + geo.ll
       }
 
-      if (process.env.NODE_ENV) {
+      if (process.env.NODE_ENV && geo.country == 'KR') {
         transporter.sendMail(mailOptions, function (err, info) {
           if (err) {
             console.log(err);
