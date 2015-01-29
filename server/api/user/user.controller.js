@@ -18,7 +18,6 @@ exports.create = function (req, res) {
     password: req.body.password,
     username: req.body.username
   }, function (err, data) {
-    System.out.println(err);
-    System.out.println(data);
+    res.json(200, data.email);
   });
 }

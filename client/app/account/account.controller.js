@@ -10,12 +10,17 @@ angular.module('pupu')
       var username = $scope.username;
       var password = $scope.password;
 
+      if (!email || !username || !password) {
+        return false;
+      }
+
       User.save({
         email: email,
         username: username,
         password: password
       }, function (data) {
-        console.log(data);
+        $rootScope.currentUser = data;
+        $location.path('login');
       });
     }
   });
