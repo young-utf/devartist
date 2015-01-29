@@ -12,7 +12,11 @@ var UserSchema = new Schema({
   username: String,
   info: String,
   active: [String],
-  published: Date.now()
+  joined: {
+    type   : Date,
+    default: Date.now,
+    index  : true
+  }
 });
 
 module.exports = mongoose.model('User', UserSchema);

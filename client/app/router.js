@@ -14,6 +14,14 @@ angular.module('pupu')
         templateUrl: 'app/gallery/gallery.html',
         controller: 'GalleryCtrl'
       })
+      .when('/login', {
+        templateUrl: 'app/account/login.html',
+        controller: 'AccountCtrl'
+      })
+      .when('/join', {
+        templateUrl: 'app/account/join.html',
+        controller: 'AccountCtrl'
+      })
       .when('/', {
         templateUrl: 'app/home/home.html',
         controller: 'HomeCtrl'

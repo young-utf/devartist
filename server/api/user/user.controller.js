@@ -13,5 +13,12 @@ exports.get = function (req, res) {
 
 exports.create = function (req, res) {
   System.out.println('create user');
-
+  User.create({
+    email: req.body.email,
+    password: req.body.password,
+    username: req.body.username
+  }, function (err, data) {
+    System.out.println(err);
+    System.out.println(data);
+  });
 }
