@@ -7,7 +7,7 @@ angular.module('pupu', [
   'ngResource',
   'ngRoute',
   'ngDialog',
-  'ui.bootstrap',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

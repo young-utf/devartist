@@ -1,0 +1,37 @@
+<div class="uploadDialog">
+  <form id="image-upload-form" enctype="multipart/form-data" action="/api/arts/file/upload" method="post">
+    <input type="file" id="upload-images" accept="image/*" onchange="loadFile(event);" style="display:none;"/>
+    <button class="btn btn-default browse-btn">Browse</button>
+    <img id="output"/>
+    <button class="btn btn-primary upload-btn" type="submit" style="display: none;">Upload</button>
+  </form>
+</div>
+<script>
+  $('.browse-btn').click(function () {
+    $('#upload-images').click();
+  });
+
+//  $('#image-upload-form').submit(function (e) {
+//    e.preventDefault();
+//    console.log(this);
+//    $(this).ajaxSubmit({
+//      error: function (xhr) {
+//        console.log(xhr);
+//      },
+//      success: function (res) {
+//        console.log(res);
+//      }
+//    });
+//    return false;
+//  });
+
+
+
+//  function loadFile (event) {
+//    var output = document.getElementById('output');
+//    output.src = URL.createObjectURL(event.target.files[0]);
+//    if (event.target.files[0]) {
+//      $('.upload-btn').css('display', 'inline-block');
+//    }
+//  }
+</script>

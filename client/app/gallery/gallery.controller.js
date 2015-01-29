@@ -4,7 +4,7 @@
 'use strict';
 
 angular.module('pupu')
-  .controller('GalleryCtrl', function ($scope, $location, $routeParams) {
+  .controller('GalleryCtrl', function ($scope, $location, $routeParams, ngDialog) {
     var path = $location.$$path;
 
     if (path === '/gallery') {

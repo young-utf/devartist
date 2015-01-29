@@ -11,8 +11,12 @@ angular.module('pupu')
       link: function (scope, el, attr) {
 
       },
-      controller: function ($scope, $http, $location) {
-
+      controller: function ($scope, $http, $location, ngDialog) {
+        $scope.openUpload = function () {
+          ngDialog.open({
+            template: 'components/navbar/uploadDailog.html'
+          });
+        }
       }
     }
   });

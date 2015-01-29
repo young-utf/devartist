@@ -6,9 +6,12 @@
 
 module.exports = function (app) {
   var path = require('path');
-  var nodemailer = require('nodemailer');
-  var clientip = require('client-ip');
-  var geoip = require('geoip-lite');
+  var System = {};
+  System.out = require('./common');
+
+  app.use('/api/users', require('./api/user'));
+  app.use('/api/arts', require('./api/arts'));
+
 
 
   app.route('/sungrok')
@@ -17,40 +20,8 @@ module.exports = function (app) {
     });
 
   app.route('/*')
-    .get(function (req, res) {
-      var ip = clientip(req);
-      var geo = geoip.lookup(ip);
-      console.log(ip);
-      console.log(JSON.stringify(geo));
-
-      if (process.env.NODE_ENV && geo.country == 'KR') {
-
-        var transporter = nodemailer.createTransport({
-          service: 'Gmail',
-          auth: {
-            user: 'young.utf@gmail.com',
-            pass: 'young123123'
-          }
-        });
-
-        var mailOptions = {
-          from: 'fff',
-          to: 'youngmmmoon@gmail.com',
-          subject: 'Server Requested',
-          text: '',
-          html: 'from ' + ip + '<br> country : ' + geo.country + ', region : ' +
-          geo.region + ', city : ' + geo.city + ', ll : ' + geo.ll
-        }
-
-        transporter.sendMail(mailOptions, function (err, info) {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log('EMAILED !');
-          }
-        });
-      }
-
+    .get(function (req, res, next) {
+      require('./api/control.center')(req, res, next);
       res.sendFile('index.html', {root: path.join(__dirname, '../client')});
     });
 };
