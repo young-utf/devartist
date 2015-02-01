@@ -11,11 +11,17 @@ angular.module('pupu')
       link: function (scope, el, attr) {
 
       },
-      controller: function ($scope, $http, $location, ngDialog) {
+      controller: function ($rootScope, $scope, $http, $location, $cookieStore, ngDialog) {
         $scope.openUpload = function () {
           ngDialog.open({
             template: 'components/navbar/uploadDailog.html'
           });
+        }
+
+        $scope.logout = function () {
+          $rootScope.currentUser = null;
+          $cookieStore.remove('token');
+          location.href = '/';
         }
       }
     }

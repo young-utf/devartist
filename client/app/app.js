@@ -21,20 +21,34 @@ angular.module('pupu', [
     return {
       request: function (config) {
         config.headers = config.headers || {};
+        if ($cookieStore.get('token')) {
+          config.headers.Authorization = 'Devartist ' + $cookieStore.get('token');
+        }
         return config;
       },
 
       responseError: function (response) {
         if (response.status === 401) {
-          $location.path('/signin');
+          alert('401 !!');
+          $cookieStore.remove('token');
+          return $q.reject(response);
         } else {
           return $q.reject(response);
         }
       }
     }
   })
-  .run(function ($rootScope, $location) {
+  .run(function ($rootScope, $location, $cookieStore, $http) {
     $rootScope.$on('$routeChangeStart', function (event, next) {
       $('.navbar-nav li').removeClass('active');
     });
+
+    if ($cookieStore.get('token')) {
+      $http.post('/auth/token', {
+        token: $cookieStore.get('token')
+      })
+      .success(function (data) {
+        $rootScope.currentUser = data;
+      });
+    }
   });

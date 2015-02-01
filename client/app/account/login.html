@@ -7,9 +7,9 @@
           <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                alt="">
           <form class="form-signin">
-            <input type="text" class="form-control" placeholder="Email" required autofocus>
-            <input type="password" class="form-control" placeholder="Password" required>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">
+            <input type="email" class="form-control" placeholder="Email" ng-model="login_email" required autofocus>
+            <input type="password" class="form-control" placeholder="Password" ng-model="login_password" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="login()">
               Sign in</button>
           </form>
         </div>

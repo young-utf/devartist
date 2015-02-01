@@ -6,9 +6,9 @@
 angular.module('pupu')
   .controller('AccountCtrl', function ($rootScope, $scope, $location, User, Auth) {
     $scope.join = function () {
-      var email = $scope.email;
-      var username = $scope.username;
-      var password = $scope.password;
+      var email = $scope.join_email;
+      var username = $scope.join_username;
+      var password = $scope.join_password;
 
       if (!email || !username || !password) {
         return false;
@@ -22,5 +22,16 @@ angular.module('pupu')
         $rootScope.currentUser = data;
         $location.path('login');
       });
+    }
+
+    $scope.login = function () {
+      var email = $scope.login_email;
+      var password = $scope.login_password;
+
+      if (!email || !password) {
+        return false;
+      }
+
+      Auth.login({email: email, password: password});
     }
   });

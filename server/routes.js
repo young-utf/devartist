@@ -11,7 +11,7 @@ module.exports = function (app) {
 
   app.use('/api/users', require('./api/user'));
   app.use('/api/arts', require('./api/arts'));
-
+  app.use('/auth', require('./api/auth'));
 
 
   app.route('/sungrok')

@@ -11,7 +11,15 @@ var UserSchema = new Schema({
   password: String,
   username: String,
   info: String,
-  active: [String],
+  active: {
+    type: Object,
+    default: {}
+  },
+  role: {
+    type: Number,
+    default: 1
+  },
+  visitArts: [Object],
   joined: {
     type   : Date,
     default: Date.now,
