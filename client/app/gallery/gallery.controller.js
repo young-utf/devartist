@@ -24,7 +24,7 @@ angular.module('pupu')
           });
           $timeout(function () {
             msnry.layout();
-          }, 0);
+          }, 200);
         }, 0);
       });
 
