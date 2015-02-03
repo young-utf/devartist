@@ -10,21 +10,28 @@ angular.module('pupu')
     if (path === '/gallery') {
       $('#navbar-gallery').addClass('active');
     }
-    
+    function layout() {
+      var container = document.querySelector('#gallery-arts-container');
+      var msnry = new Masonry(container, {
+        itemSelector: '.gallery-arts',
+        columnWidth: 350,
+        gutter: 10
+      });
+      $timeout(function () {
+        msnry.layout();
+      }, 200);
+    }
+
+    $timeout(function () {
+      layout();
+    }, 200);
+
     logger.info($rootScope.currentUser);
     $http.get('/api/arts').
       success(function (data, status) {
         $scope.arts = data;
         $timeout(function () {
-          var container = document.querySelector('#gallery-arts-container');
-          var msnry = new Masonry(container, {
-            itemSelector: '.gallery-arts',
-            columnWidth: 350,
-            gutter: 10
-          });
-          $timeout(function () {
-            msnry.layout();
-          }, 200);
+          layout();
         }, 0);
       });
 
