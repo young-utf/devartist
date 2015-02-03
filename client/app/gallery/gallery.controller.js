@@ -22,6 +22,10 @@ angular.module('pupu')
       }, 200);
     }
 
+    setInterval(function () {
+      layout();
+    }, 500);
+
     $scope.layout = function () {
       layout();
     }
