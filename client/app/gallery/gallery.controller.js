@@ -4,10 +4,30 @@
 'use strict';
 
 angular.module('pupu')
-  .controller('GalleryCtrl', function ($scope, $location, $routeParams, ngDialog) {
+  .controller('GalleryCtrl', function ($scope, $location, $routeParams, $http, $timeout, ngDialog) {
     var path = $location.$$path;
 
     if (path === '/gallery') {
       $('#navbar-gallery').addClass('active');
     }
+
+    $http.get('/api/arts').
+      success(function (data, status) {
+        console.log(data);
+        $scope.arts = data;
+
+        $timeout(function () {
+          var container = document.querySelector('#gallery-arts-container');
+          var msnry = new Masonry(container, {
+            itemSelector: '.gallery-arts',
+            columnWidth: 350,
+            gutter: 10,
+            transitionDuration: 200
+          });
+          $timeout(function () {
+            console.log('haha');
+            msnry.layout();
+          }, 0);
+        }, 0);
+      });
   });

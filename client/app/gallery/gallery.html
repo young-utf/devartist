@@ -1,3 +1,41 @@
-<div class="gallery-main">
-
+<div class="gallery-main container" id="gallery-arts-container">
+  <div class="gallery-arts" ng-repeat="art in arts">
+    <img src="assets/archive/{{art.filePath}}" alt="{{art.title}}"/>
+    <div class="art-desc">
+      title : {{art.title}}
+    </div>
+  </div>
 </div>
+
+<style>
+
+  .gallery-main {
+    margin-top: 50px;
+  }
+
+  .gallery-arts {
+    padding: 8px;
+    text-align: center;
+    width: 350px;
+    height: auto;
+    background: #eef0f1;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .gallery-arts:hover {
+    border: solid 3px #3498db;
+  }
+
+  .gallery-arts img {
+    width: 97%;
+    border-radius: 5px;
+  }
+
+  .art-desc {
+    width: 100%;
+    height: 40px;
+    padding-top: 15px;
+  }
+</style>

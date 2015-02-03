@@ -13,11 +13,17 @@ exports.get = function (req, res) {
 
 exports.create = function (req, res) {
   System.out.println('create user');
-  User.create({
-    email: req.body.email,
-    password: req.body.password,
-    username: req.body.username
-  }, function (err, data) {
-    res.json(200, data.email);
+  User.find({email: req.body.email}, function (err, data) {
+    if (data.length < 1) {
+      User.create({
+        email: req.body.email,
+        password: req.body.password,
+        username: req.body.username
+      }, function (err, data) {
+        res.json(200, data.email);
+      });
+    } else {
+      res.json(404, {errorMSG: 'Already Taken email address.'})
+    }
   });
 }

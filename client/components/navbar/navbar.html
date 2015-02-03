@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav">
         <li id="navbar-about"><a href="/about">About</a></li>
         <li id="navbar-gallery"><a href="/gallery">Gallery</a></li>
-        <li id="navbar-upload"><a href="#" ng-click="openUpload()" ng-if="false">Upload</a></li>
+        <li id="navbar-upload"><a href="#" ng-click="openUpload()" ng-if="currentUser.role > 2">Upload</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

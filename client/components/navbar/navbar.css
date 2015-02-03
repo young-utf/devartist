@@ -22,3 +22,8 @@
   width: 90%;
 }
 
+html .ngdialog.ngdialog-theme-default {
+  padding-bottom: 80px;
+  padding-top: 80px;
+}
+

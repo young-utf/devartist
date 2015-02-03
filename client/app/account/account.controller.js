@@ -21,6 +21,11 @@ angular.module('pupu')
       }, function (data) {
         $rootScope.currentUser = data;
         $location.path('login');
+      }, function (err) {
+        $scope.join_email = '';
+        $scope.join_username = '';
+        $scope.join_password = '';
+        alert(err.data.errorMSG);
       });
     }
 

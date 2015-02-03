@@ -28,7 +28,10 @@ angular.module('pupu', [
       },
 
       responseError: function (response) {
-        if (response.status === 401) {
+        if (response.status === 201) {
+          console.log('file upload success');
+          $location.path('/gallery');
+        } else if (response.status === 401) {
           alert('401 !!');
           $cookieStore.remove('token');
           return $q.reject(response);
