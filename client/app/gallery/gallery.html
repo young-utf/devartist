@@ -1,10 +1,11 @@
 <div class="gallery-main container" id="gallery-arts-container" ng-show="currentUser.role > 3">
-  <div class="gallery-arts" ng-repeat="art in arts" ng-click="openArt($index)">
+  <div class="gallery-arts" ng-repeat="art in arts" ng-click="openArt($index)" ng-init="layout()">
     <img src="assets/archive/{{art.filePath}}" alt="{{art.title}}"/>
     <div class="art-desc">
       title : {{art.title}}
     </div>
   </div>
+  <div ng-init="layout()"></div>
 </div>
 
 <style>
