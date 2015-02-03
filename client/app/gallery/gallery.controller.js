@@ -4,16 +4,15 @@
 'use strict';
 
 angular.module('pupu')
-  .controller('GalleryCtrl', function ($scope, $location, $routeParams, $http, $timeout, ngDialog) {
+  .controller('GalleryCtrl', function ($rootScope, $scope, $location, $routeParams, $http, $timeout, ngDialog) {
     var path = $location.$$path;
 
     if (path === '/gallery') {
       $('#navbar-gallery').addClass('active');
     }
-
+    
     $http.get('/api/arts').
       success(function (data, status) {
-        console.log(data);
         $scope.arts = data;
 
         $timeout(function () {
@@ -25,7 +24,6 @@ angular.module('pupu')
             transitionDuration: 200
           });
           $timeout(function () {
-            console.log('haha');
             msnry.layout();
           }, 0);
         }, 0);

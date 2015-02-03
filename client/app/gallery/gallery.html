@@ -1,4 +1,4 @@
-<div class="gallery-main container" id="gallery-arts-container">
+<div class="gallery-main container" id="gallery-arts-container" ng-show="currentUser.role > 3">
   <div class="gallery-arts" ng-repeat="art in arts">
     <img src="assets/archive/{{art.filePath}}" alt="{{art.title}}"/>
     <div class="art-desc">
