@@ -43,21 +43,33 @@ module.exports = function (grunt) {
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: ['<%= yeoman.client %>/index.html'],
+      html: ['client/index.html'],
       options: {
-        dest: '<%= yeoman.dist %>/public'
+        dest: 'dist/public'
       }
+    },
+
+    concat: {
+      files: [
+        {
+          dest: '.tmp/concat/js/app.js',
+          src: [
+            'app/**/*.js',
+            'components/**/*.js'
+          ]
+        }
+      ]
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/public/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/public/{,*/}*.css'],
-      js: ['<%= yeoman.dist %>/public/{,*/}*.js'],
+      html: ['dist/public/{,*/}*.html'],
+      css: ['dist/public/{,*/}*.css'],
+      js: ['dist/public/{,*/}*.js'],
       options: {
         assetsDirs: [
-          '<%= yeoman.dist %>/public',
-          '<%= yeoman.dist %>/public/assets/images'
+          'dist/public',
+          'dist/public/assets/images'
         ],
         // This is so we update image references in our ng-templates
         patterns: {
@@ -73,9 +85,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.client %>/assets/images',
+          cwd: 'client/assets/',
           src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/public/assets/images'
+          dest: 'dist/public/assets/images'
         }]
       }
     },
@@ -236,5 +248,17 @@ module.exports = function (grunt) {
   grunt.registerTask('dev', [
     'injector',
     'wiredep'
-  ])
+  ]);
+
+  grunt.registerTask('concat', [
+    'concat'
+  ]);
+
+  grunt.registerTask('build', [
+    'imagemin',
+    'useminPrepare',
+    'concat',
+    'uglify',
+    'usemin'
+  ]);
 };

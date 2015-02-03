@@ -10,8 +10,8 @@ angular.module('pupu')
     if (path === '/gallery') {
       $('#navbar-gallery').addClass('active');
     }
-
-    console.log($rootScope.currentUser);
+    
+    logger.info($rootScope.currentUser);
     $http.get('/api/arts').
       success(function (data, status) {
         $scope.arts = data;

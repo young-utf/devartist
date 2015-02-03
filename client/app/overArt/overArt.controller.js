@@ -5,10 +5,9 @@
 
 angular.module('pupu')
   .controller('overArtCtrl', function ($scope, $rootScope, $timeout) {
-    console.log($scope.arts);
+    logger.info($scope.arts);
     $scope.overArt = $scope.arts[$scope.overArtIndex];
     $scope.next = function () {
-      console.log('hello');
       if ($scope.overArtIndex < $scope.arts.length - 1) {
         $scope.overArtIndex++;
       } else if ($scope.overArtIndex === $scope.arts.length -1) {

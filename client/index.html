@@ -6,7 +6,7 @@
   <base href="/">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="assets/style/a.css"/>
-
+  <!-- build:css(client) app.vendor.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog.css" />
   <link rel="stylesheet" href="bower_components/ngDialog/css/ngDialog-theme-default.css" />
@@ -14,7 +14,9 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="bower_components/bootstrap-fileinput/css/fileinput.min.css" />
   <!-- endbower -->
+  <!-- endbuild -->
 
+  <!-- build:css({.tmp,client}) app/app.css -->
   <!-- injector:css -->
   <link rel="stylesheet" href="app/about/about.css">
   <link rel="stylesheet" href="app/app.css">
@@ -23,6 +25,8 @@
   <link rel="stylesheet" href="components/footer/footer.css">
   <link rel="stylesheet" href="components/navbar/navbar.css">
   <!-- endinjector -->
+  <!-- endbuild -->
+
 </head>
 <body ng-app="pupu">
 
@@ -31,6 +35,7 @@
     <div ng-view=""></div>
   </div>
   <footer></footer>
+<!-- build:js({client,node_modules}) app.vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
@@ -53,6 +58,9 @@
 <script src="bower_components/outlayer/outlayer.js"></script>
 <script src="bower_components/masonry/masonry.js"></script>
 <!-- endbower -->
+<!-- endbuild -->
+  <!-- build:js({.tmp,client}) app/app.js -->
+  <script src="app/logger.js"></script>
   <script src="app/app.js"></script>
 <!-- injector:js -->
 <script src="app/about/about.controller.js"></script>
@@ -66,5 +74,6 @@
 <script src="components/user/auth.service.js"></script>
 <script src="components/user/user.service.js"></script>
 <!-- endinjector -->
+<!-- endbuild -->
 </body>
 </html>
