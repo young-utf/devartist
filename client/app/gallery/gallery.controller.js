@@ -10,22 +10,30 @@ angular.module('pupu')
     if (path === '/gallery') {
       $('#navbar-gallery').addClass('active');
     }
-    
+
+    console.log($rootScope.currentUser);
     $http.get('/api/arts').
       success(function (data, status) {
         $scope.arts = data;
-
         $timeout(function () {
           var container = document.querySelector('#gallery-arts-container');
           var msnry = new Masonry(container, {
             itemSelector: '.gallery-arts',
             columnWidth: 350,
-            gutter: 10,
-            transitionDuration: 200
+            gutter: 10
           });
           $timeout(function () {
             msnry.layout();
           }, 0);
         }, 0);
       });
+
+    $scope.openArt = function (index) {
+      $scope.overArtIndex = index;
+      ngDialog.open({
+        template: 'app/overArt/overArt.html',
+        controller: 'overArtCtrl',
+        scope: $scope
+      });
+    }
   });
