@@ -22,17 +22,9 @@ angular.module('pupu')
       }, 200);
     }
 
-    setInterval(function () {
-      layout();
-    }, 500);
-
     $scope.layout = function () {
       layout();
     }
-
-    $timeout(function () {
-      layout();
-    }, 200);
 
     logger.info($rootScope.currentUser);
     $http.get('/api/arts').
@@ -50,5 +42,17 @@ angular.module('pupu')
         controller: 'overArtCtrl',
         scope: $scope
       });
+    }
+  })
+  .directive('msnry', function ($rootScope, $location) {
+    return {
+      restrict: 'A',
+      link: function (scope, el, attr) {
+        el.bind('load', function () {
+          if (scope.$last) {
+            scope.layout();
+          }
+        });
+      }
     }
   });

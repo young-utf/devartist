@@ -1,20 +1,31 @@
 <div class="overArt-main">
-  <img src="assets/archive/{{overArt.filePath}}" ng-click="next()"/>
+  <img src="assets/archive/{{overArt.filePath}}" ng-click="next()" image-rendered/>
 </div>
 
 <style>
   .overArt-main {
     width: 100%;
+    height: 100%;
   }
 
   .overArt-main img {
-    width: 100%;
-    height: auto;
+    border-radius: 5px;
     cursor: pointer;
   }
 
-  .ngdialog .ngdialog-content {
-    width: 90% !important;
+  .higher {
+    height: 100%;
+    width: auto;
+  }
 
+  .wider {
+    width: 100%;
+    height: auto;
+  }
+
+  .ngdialog .ngdialog-content {
+    width: 95% !important;
+    height: 100%;
+    border-radius: 5px !important;
   }
 </style>

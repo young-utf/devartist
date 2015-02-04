@@ -1,6 +1,6 @@
 <div class="gallery-main container" id="gallery-arts-container" ng-show="currentUser.role > 3">
   <div class="gallery-arts" ng-repeat="art in arts" ng-click="openArt($index)" ng-init="layout()">
-    <img src="assets/archive/{{art.filePath}}" alt="{{art.title}}"/>
+    <img src="assets/archive/{{art.filePath}}" alt="{{art.title}}" msnry/>
     <div class="art-desc">
       title : {{art.title}}
     </div>

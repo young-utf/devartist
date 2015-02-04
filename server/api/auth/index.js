@@ -41,7 +41,7 @@ router.post('/local', function (req, res) {
         } else {
           user.active.login = [new Date];
         }
-        User.findByIdAndUpdate(user._id, {active: user.active}, function (err, user) {
+        User.findByIdAndUpdate(user._id, {$set: { active: user.active }}, function (err, user) {
           res.json(200, user);
         });
       } else {
