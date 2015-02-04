@@ -1,16 +1,17 @@
-<div class="overArt-main">
-  <img src="assets/archive/{{overArt.filePath}}" ng-click="next()" image-rendered/>
+<div class="overArt-main" ng-click="next()">
+  <img src="assets/archive/{{overArt.filePath}}" image-rendered/>
 </div>
 
 <style>
   .overArt-main {
     width: 100%;
     height: 100%;
+    cursor: pointer;
   }
 
   .overArt-main img {
     border-radius: 5px;
-    cursor: pointer;
+    outline: none;
   }
 
   .higher {

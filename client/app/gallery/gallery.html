@@ -1,4 +1,4 @@
-<div class="gallery-main container" id="gallery-arts-container" ng-show="currentUser.role > 3">
+<div class="gallery-main" id="gallery-arts-container" ng-show="currentUser.role > 3">
   <div class="gallery-arts" ng-repeat="art in arts" ng-click="openArt($index)" ng-init="layout()">
     <img src="assets/archive/{{art.filePath}}" alt="{{art.title}}" msnry/>
     <div class="art-desc">
@@ -12,6 +12,8 @@
 
   .gallery-main {
     margin-top: 50px;
+    margin-bottom: 100px;
+    padding: auto;
   }
 
   .gallery-arts {
