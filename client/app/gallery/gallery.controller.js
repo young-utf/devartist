@@ -10,28 +10,51 @@ angular.module('pupu')
     if (path === '/gallery') {
       $('#navbar-gallery').addClass('active');
     }
-    function layout() {
-      var container = document.querySelector('#gallery-arts-container');
-      var msnry = new Masonry(container, {
-        itemSelector: '.gallery-arts',
-        columnWidth: 350,
-        gutter: 10
-      });
-      $timeout(function () {
-        msnry.layout();
-      }, 200);
+    $timeout(function () {
+      calPosition();
+    }, 500);
+    function calPosition() {
+      var layer = $('.gallery-main').width();
+      var arts = $('.gallery-arts');
+      var divider = 3;
+      var artWidth = 351;
+      arts.css('position', 'absolute');
+      for(var i = 0; i < arts.length; i++) {
+        console.log(i%3 + 1);
+        var horizon = i%3 + 1;
+        $(arts[i]).css('left', horizon * 360);
+      }
+      console.log(layer);
+      console.log(arts);
     }
 
-    $scope.layout = function () {
-      layout();
-    }
+    //function layout() {
+    //  var container = document.querySelector('#gallery-arts-container');
+    //  var msnry = new Masonry(container, {
+    //    itemSelector: '.gallery-arts',
+    //    columnWidth: 340,
+    //    gutter: 10
+    //  });
+    //  $timeout(function () {
+    //    msnry.layout();
+    //  }, 200);
+    //}
+
+    //$timeout(function () {
+    //  layout();
+    //}, 1000);
+    //
+    //$scope.layout = function () {
+    //  console.log('layout');
+    //  layout();
+    //}
 
     logger.info($rootScope.currentUser);
     $http.get('/api/arts').
       success(function (data, status) {
         $scope.arts = data;
         $timeout(function () {
-          layout();
+          //layout();
         }, 0);
       });
 
@@ -50,7 +73,7 @@ angular.module('pupu')
       link: function (scope, el, attr) {
         el.bind('load', function () {
           if (scope.$last) {
-            scope.layout();
+            //scope.layout();
           }
         });
       }
