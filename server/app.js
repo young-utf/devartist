@@ -53,7 +53,7 @@ setInterval(function () {
     } else
       console.log('nothing to do');
   });
-}, 3000);
+}, 10000);
 
 require('./config')(app);
 require('./routes')(app);
