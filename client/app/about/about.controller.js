@@ -15,8 +15,5 @@ angular.module('pupu')
       $('.about-main-img').addClass('active');
     });
 
-    $scope.yunmi = {
-      location: 'Dubai'
-    }
 
   });

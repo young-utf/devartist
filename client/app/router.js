@@ -10,6 +10,10 @@ angular.module('pupu')
         templateUrl: 'app/about/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/status', {
+        templateUrl: 'app/status/status.html',
+        controller: 'StatusCtrl'
+      })
       .when('/gallery', {
         templateUrl: 'app/gallery/gallery.html',
         controller: 'GalleryCtrl'
