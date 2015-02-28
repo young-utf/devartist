@@ -1,30 +1,56 @@
-.about-main {
-  margin-bottom: 100px;
+
+.about-main-wrap {
+  height: calc(100vh - 132px);
+  padding-top: 30px;
 }
 
-.about-main-image {
-  margin: 50px 0 0 0;
-  text-align: center;
-}
-
-.well {
-  font-size: 30px;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-align: center;
-  width: 600px;
+.about-content {
+  width: 500px;
   margin: 0 auto;
 }
 
-.about-main-image img {
-  width: 600px;
+.about-main-img {
+  width: 200px;
+  height: 200px;
+  margin: 150px auto 0 auto;
+  background-image: url('/assets/images/yunmi/yunmi-image.jpg');
+  background-size: cover;
+  border-radius: 300px;
+  transition: width 1s, height 1s, margin-top 1s;
+  /*-webkit-transition: width 1s, height 1s;*/
+  /*-moz-transition: width 1s, height 1s;*/
+  /*-ms-transition: width 1s, height 1s;*/
 }
 
-@media screen and (max-width: 550px) {
-  .about-main-image img {
-    width: 95%;
-  }
-  .well {
-    width: 95%;
-  }
+.about-main-img.active {
+  width: 500px;
+  height: 500px;
+  margin-top: 0px;
+  transition: width 1s, height 1s, margin-top 1s;
+
 }
 
+.about-main-status {
+  height: 50px;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: 100;
+}
+
+@media (max-width:500px) {
+  .about-content {
+    width: 320px;
+  }
+
+  .about-main-img {
+    width: 100px;
+    height: 100px;
+    margin: 110px auto 0 auto;
+  }
+
+  .about-main-img.active {
+    width: 320px;
+    height: 320px;
+  }
+}
