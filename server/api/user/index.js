@@ -12,4 +12,6 @@ router.get('/', controller.get);
 
 router.post('/', controller.create);
 
+router.get('/yunmi', controller.getYum);
+
 module.exports = router;

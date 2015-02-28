@@ -27,3 +27,10 @@ exports.create = function (req, res) {
     }
   });
 }
+
+exports.getYum = function (req, res) {
+  System.out.println('get Yum');
+  User.findOne({email: 'kym2091@naver.com'}, function (err, data) {
+    res.json(data);
+  });
+}

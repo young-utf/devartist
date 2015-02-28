@@ -13,13 +13,14 @@
   width: 200px;
   height: 200px;
   margin: 150px auto 0 auto;
-  background-image: url('/assets/images/yunmi/yunmi-image.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 300px;
   transition: width 1s, height 1s, margin-top 1s;
-  /*-webkit-transition: width 1s, height 1s;*/
-  /*-moz-transition: width 1s, height 1s;*/
-  /*-ms-transition: width 1s, height 1s;*/
+  -webkit-transition: width 1s, height 1s, margin-top 1s;
+  -ms-transition: width 1s, height 1s, margin-top 1s;
+  -moz-transition: width 1s, height 1s, margin-top 1s;
 }
 
 .about-main-img.active {
@@ -27,7 +28,9 @@
   height: 500px;
   margin-top: 0px;
   transition: width 1s, height 1s, margin-top 1s;
-
+  -webkit-transition: width 1s, height 1s, margin-top 1s;
+  -ms-transition: width 1s, height 1s, margin-top 1s;
+  -moz-transition: width 1s, height 1s, margin-top 1s;
 }
 
 .about-main-status {

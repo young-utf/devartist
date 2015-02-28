@@ -12,6 +12,7 @@ module.exports = function (app) {
   app.use('/api/users', require('./api/user'));
   app.use('/api/arts', require('./api/arts'));
   app.use('/auth', require('./api/auth'));
+  app.use('/upload/stat/:location/:id', require('./api/file/stat'));
   app.use('/upload', require('./api/file'));
 
 
@@ -22,7 +23,7 @@ module.exports = function (app) {
 
   app.route('/*')
     .get(function (req, res, next) {
-      System.out.println(req.headers);
+      //System.out.println(req.headers);
       require('./api/control.center')(req, res, next);
       res.sendFile('index.html', {root: path.join(__dirname, '../client')});
     });

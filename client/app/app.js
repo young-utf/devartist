@@ -20,6 +20,7 @@ angular.module('pupu', [
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {
       request: function (config) {
+        //logger.info(config);
         config.headers = config.headers || {};
         if ($cookieStore.get('token')) {
           config.headers.Authorization = 'Devartist ' + $cookieStore.get('token');
@@ -46,12 +47,21 @@ angular.module('pupu', [
       $('.navbar-nav li').removeClass('active');
     });
 
+    $http.get('/api/users/yunmi').success(function (data) {
+      if (data) {
+        $rootScope.yumStat = data.status;
+      }
+    });
+
     if ($cookieStore.get('token')) {
       $http.post('/auth/token', {
         token: $cookieStore.get('token')
       })
       .success(function (data) {
         $rootScope.currentUser = data;
+        if (!$rootScope.yumStat) {
+          $rootScope.yumStat = $rootScope.currentUser.status;
+        }
       });
     }
   });

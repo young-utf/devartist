@@ -14,6 +14,9 @@ angular.module('pupu')
     $timeout(function () {
       $('.about-main-img').addClass('active');
     });
-    //$('.about-main-image img').css('width', $(window).width() / 2);
+
+    $scope.yunmi = {
+      location: 'Dubai'
+    }
 
   });

@@ -19,6 +19,11 @@ var UserSchema = new Schema({
     type: Number,
     default: 1
   },
+  status: {
+    location: String,
+    date: Date,
+    filepath: String
+  },
   visitArts: [Object],
   joined: {
     type   : Date,

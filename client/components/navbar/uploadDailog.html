@@ -1,4 +1,25 @@
-<div class="uploadDialog">
+<div class="uploadingChoice {{step}}">
+  <div class="upc-wrap">
+    <div class="upc-status" ng-click="goStep('status')">
+      Status
+    </div>
+    <div class="upc-arts" ng-click="goStep('arts')">
+      Arts
+    </div>
+  </div>
+</div>
+
+<div class="uploadingStatus {{step}}">
+  <form enctype="multipart/form-data" method="post">
+    <input type="file" name="uploadImage" id="upload-stat" accept="image/*" onchange="loadStatFile(event);" style="display:none;"/>
+    <button class="btn btn-default browse-stat-btn">Browse</button>
+    <img id="output-stat"/>
+    <input type="text" ng-model="location" class="input-stat" placeholder="Where are you, yunmi ?" ng-keypress="press($event)"/>
+    <button class="btn btn-primary upload-stat-btn" ng-click="statForm()" style="display: none;">Upload</button>
+  </form>
+</div>
+
+<div class="uploadDialog {{step}}">
   <form enctype="multipart/form-data" action="/upload" method="post">
     <input type="file" name="uploadImage" id="upload-images" accept="image/*" onchange="loadFile(event);" style="display:none;"/>
     <button class="btn btn-default browse-btn">Browse</button>
@@ -6,10 +27,134 @@
     <button class="btn btn-primary upload-btn" type="submit" style="display: none;">Upload</button>
   </form>
 </div>
+<style>
+  .uploadingChoice {
+    opacity: 0;
+    z-index: -1;
+    height: 0px;
+    position: relative;
+  }
+
+  .uploadingChoice.choice {
+    opacity: 1;
+    z-index: 1;
+    padding: 20px 0;
+    height: 200px;
+    position: relative;
+    transition: opacity 2s, height 0.5s;
+    transition-delay: 0.2s;
+  }
+
+  .uploadingChoice.choice .upc-wrap {
+    width: 300px;
+    position: absolute;
+    left: calc(50% - 150px);
+  }
+  .uploadingChoice.choice .upc-wrap div:hover {
+    opacity: 0.7;
+  }
+
+  .uploadingChoice.choice .upc-wrap div {
+    width: 130px;
+    height: 130px;
+    border-radius: 130px;
+    float: left;
+    text-align: center;
+    color: white;
+    padding-top: 52px;
+    font-size: 30px;
+    font-weight: 100;
+    cursor: pointer;
+  }
+
+  .uploadingChoice.choice .upc-wrap .upc-status {
+    background: dodgerblue;
+  }
+
+  .uploadingChoice.choice .upc-wrap .upc-arts {
+    margin-left: 30px;
+    background: orangered;
+  }
+
+  .uploadingStatus {
+    opacity: 0;
+    z-index: -1;
+    height: 0px;
+    position: relative;
+  }
+
+  .uploadingStatus.status {
+    opacity: 1;
+    z-index: 1;
+    height: auto;
+    transition: opacity 2s, height 0.5s;
+    transition-delay: 0.2s;
+  }
+  .uploadingStatus.status .browse-stat-btn {
+    width: 100%;
+  }
+
+  .uploadingStatus.status #output-stat {
+    display: block;
+    margin: 30px auto;
+    width: 290px;
+    height: 290px;
+    border-radius: 300px;
+  }
+
+  .uploadingStatus.status .upload-stat-btn {
+    width: 100%;
+  }
+
+  .uploadingStatus.status .input-stat {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: solid 1px #dcdcdc;
+    padding: 10px;
+    height: 35px;
+    font-size: 17px;
+    font-weight: 100;
+    text-align: center;
+  }
+
+
+  .uploadDialog {
+    opacity: 0;
+    z-index: -1;
+    height: 0px;
+    position: relative;
+  }
+
+  .uploadDialog.arts {
+    opacity: 1;
+    z-index: 1;
+    height: auto;
+    transition: opacity 2s, height 0.5s;
+    transition-delay: 0.2s;
+  }
+
+  @media (max-width: 450px) {
+
+  }
+</style>
 <script>
+  $('.browse-stat-btn').click(function () {
+    $('#upload-stat').click();
+  });
+
   $('.browse-btn').click(function () {
     $('#upload-images').click();
   });
+
+  function loadStatFile (event) {
+    var output = document.getElementById('output-stat');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    if (event.target.files[0]) {
+      $('.upload-stat-btn').css('display', 'inline-block');
+    }
+  }
 
   function loadFile (event) {
     var output = document.getElementById('output');
