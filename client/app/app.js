@@ -43,6 +43,7 @@ angular.module('pupu', [
     }
   })
   .run(function ($rootScope, $location, $cookieStore, $http) {
+    $rootScope.yumStat = {};
     $rootScope.$on('$routeChangeStart', function (event, next) {
       $('.navbar-nav li').removeClass('active');
     });

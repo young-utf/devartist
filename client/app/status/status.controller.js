@@ -8,11 +8,11 @@ angular.module('pupu')
     var path = $location.$$path;
 
     if (!$rootScope.yumStat) {
-      $scope.yumStat = {
-        location: 'Seoul',
-        filepath: '../yunmi-image.jpg',
-        date: new Date
-      }
+      //$scope.yumStat = {
+      //  location: 'Seoul',
+      //  filepath: '../yunmi-image.jpg',
+      //  date: new Date
+      //}
     }
 
     if (path === '/status') {
