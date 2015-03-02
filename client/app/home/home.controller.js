@@ -17,10 +17,10 @@ angular.module('pupu')
         text: '방과 후'
       },{
         image: 'assets/images/main-art6.jpg',
-        text: '야리냐 ? '
+        text: '꿈 속'
       },{
         image: 'assets/images/main-art7.jpg',
-        text: '야근 후, 개이득'
+        text: '한강 가는 길'
       },{
         image: 'assets/images/main-art4.jpg',
         text: '사랑'

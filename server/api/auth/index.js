@@ -42,7 +42,13 @@ router.post('/local', function (req, res) {
           user.active.login = [new Date];
         }
         User.findByIdAndUpdate(user._id, {$set: { active: user.active }}, function (err, user) {
-          res.json(200, user);
+          User.findOne({email: 'kym2091@naver.com'}, function (err, yum) {
+
+            res.json(200, {
+              yum: yum,
+              user: user
+            });
+          });
         });
       } else {
        res.json(401, {errorMSG: 'incorrect password'});

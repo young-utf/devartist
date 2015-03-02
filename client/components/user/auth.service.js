@@ -12,8 +12,11 @@ angular.module('pupu')
           password: user.password
         }).success(function (data) {
           console.log(data);
-          $rootScope.currentUser = data;
-          $cookieStore.put('token', data._id);
+          $rootScope.currentUser = data.user;
+          $cookieStore.put('token', data.user._id);
+          if (data.yum) {
+            $rootScope.yumStat = data.yum.status;
+          }
           $location.path('/home');
         }).error(function (data) {
           $cookieStore.remove('token');
