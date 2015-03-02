@@ -2,7 +2,7 @@ node_modules
 public
 .tmp
 .idea
-client/assets/yunmi/location
+client/assets/images/yunmi/location
 client/assets/archive
 client/bower_components
 dist
