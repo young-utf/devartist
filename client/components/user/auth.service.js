@@ -4,7 +4,7 @@
 'use stirct';
 
 angular.module('pupu')
-  .factory('Auth', function ($rootScope, $location, $http, $cookieStore) {
+  .factory('Auth', function ($rootScope, $location, $http, $cookieStore, Socket) {
     return {
       login: function (user) {
         $http.post('/auth/local', {
@@ -18,6 +18,7 @@ angular.module('pupu')
             $rootScope.yumStat = data.yum.status;
           }
           $location.path('/home');
+          Socket.init();
         }).error(function (data) {
           $cookieStore.remove('token');
           alert(data.errorMSG);
