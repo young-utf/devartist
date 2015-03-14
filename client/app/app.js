@@ -42,7 +42,7 @@ angular.module('pupu', [
       }
     }
   })
-  .run(function ($rootScope, $location, $cookieStore, $http) {
+  .run(function ($rootScope, $location, $cookieStore, $http, Socket) {
     $rootScope.yumStat = {};
     $rootScope.$on('$routeChangeStart', function (event, next) {
       $('.navbar-nav li').removeClass('active');
@@ -62,6 +62,9 @@ angular.module('pupu', [
         $rootScope.currentUser = data;
         if (!$rootScope.yumStat) {
           $rootScope.yumStat = $rootScope.currentUser.status;
+        }
+        if ($rootScope.currentUser._id) {
+          Socket.init();
         }
       });
     }

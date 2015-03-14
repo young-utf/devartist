@@ -13,6 +13,18 @@ angular.module('pupu')
         socket = io();
         userId = $rootScope.currentUser._id;
         socket.emit('init', {id: userId});
+        this.onNoti();
+      },
+
+      sendNoti: function (targetUser) {
+        socket.emit('sendNoti', {id: targetUser});
+      },
+
+      onNoti: function () {
+        socket.on('notiTo' + userId, function () {
+          console.log('Got Noti');
+          $rootScope.$emit('getNoti');
+        })
       }
     }
   });

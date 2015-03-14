@@ -26,6 +26,10 @@ angular.module('pupu')
         templateUrl: 'app/account/join.html',
         controller: 'AccountCtrl'
       })
+      .when('/messages', {
+        templateUrl: 'app/messageBox/messageBox.html',
+        controller: 'MessageBoxCtrl'
+      })
       .when('/', {
         templateUrl: 'app/home/home.html',
         controller: 'HomeCtrl'

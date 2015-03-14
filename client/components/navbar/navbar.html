@@ -24,7 +24,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li ng-if="!currentUser"><a href="/join">Join</a></li>
         <li ng-if="!currentUser"><a href="/login">Login</a></li>
-        <li ng-if="currentUser"><a href="#"> Hello, {{currentUser.username}}</a></li>
+        <li ng-if="currentUser"><a href="/messages"> Hello, {{currentUser.username}}</a></li>
         <li ng-if="currentUser"><a href="#" ng-click="logout()">LogOut</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

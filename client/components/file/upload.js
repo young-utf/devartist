@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('v1App')
+angular.module('pupu')
   .factory('Upload', function($q, $rootScope, $location){
 
     function multipartUpload(id) {

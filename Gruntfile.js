@@ -120,7 +120,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       options: {
         // This should be the name of your apps angular module
-        module: 'v1App',
+        module: 'pupu',
         htmlmin: {
           collapseBooleanAttributes: true,
           collapseWhitespace: true,
