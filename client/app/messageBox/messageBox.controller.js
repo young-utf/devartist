@@ -6,4 +6,5 @@
 angular.module('pupu')
 	.controller('MessageBoxCtrl', function ($rootScope, $scope) {
 		console.log('in message box');
+		$('.navbar').css('margin-bottom', 0);
 	});
