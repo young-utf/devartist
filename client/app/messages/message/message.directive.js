@@ -9,7 +9,7 @@ angular.module('pupu')
       restrict: 'E',
       templateUrl: 'app/messageBox/message.html',
       link: function (scope, el, attr) {
-        console.log(el);
+
       }
     }
   })

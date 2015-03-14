@@ -14,8 +14,14 @@ angular.module('pupu')
         return;
       }
 
-      messageService.send({content: $scope.message.content}, function () {
 
+      messageService.send({
+        sender: $rootScope.currentUser._id,
+        content: $scope.message.content,
+        sended: false
+      }, function () {
+        console.log('Successfully Sended');
+        $scope.message = {};
       });
     }
 

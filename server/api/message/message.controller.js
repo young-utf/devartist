@@ -13,7 +13,11 @@ exports.get = function (req, res) {
 }
 
 exports.send = function (req, res) {
-  System.out.println('in message send');
+  System.out.println('in message send', req.body);
+  var message = new Message(req.body);
+
+  message.save();
+  res.send(200);
 }
 
 exports.read = function (req, res) {

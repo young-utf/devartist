@@ -16,7 +16,13 @@ module.exports = function (io) {
         socket.broadcast.emit('notiTo' + target.id, 'got noti');
       });
 
-      
+      socket.on('sendMsg', function (target) {
+        console.log('Message Send', target);
+
+        socket.emit('messageSendSuccess');
+
+        socket.broadcast.emit('messageTo' + target.id, 'got noti');
+      });
     });
   });
 }

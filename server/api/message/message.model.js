@@ -10,12 +10,10 @@ var mongoose = require('mongoose'),
 var MessageSchema = new Schema({
   sender: {
     type: String,
-    required: true,
     ref: 'User'
   },
   receiver: {
     type: String,
-    required: true,
     ref: 'User'
   },
   sendedAt: {
@@ -28,6 +26,10 @@ var MessageSchema = new Schema({
     default: false
   },
   read: {
+    type: Boolean,
+    default: false
+  },
+  sended: {
     type: Boolean,
     default: false
   }
