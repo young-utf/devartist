@@ -19,6 +19,7 @@
     float: left;
     outline: none;
     font-size: 20px;
+    color: #aaa;
 }
 
 .msg-input-btn {
@@ -31,4 +32,8 @@
     line-height: 50px;
     cursor: pointer;
     text-align: center;
+}
+
+.msg-input-btn:hover {
+  background: #ffd4d4;
 }

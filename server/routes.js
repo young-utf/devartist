@@ -11,6 +11,7 @@ module.exports = function (app) {
 
   app.use('/api/users', require('./api/user'));
   app.use('/api/arts', require('./api/arts'));
+  app.use('/api/message', require('./api/message'));
   app.use('/auth', require('./api/auth'));
   app.use('/upload/stat/:location/:id', require('./api/file/stat'));
   app.use('/upload', require('./api/file'));

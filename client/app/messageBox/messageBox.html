@@ -3,10 +3,10 @@
     <message></message>
   </div>
   <div class="msg-input-wrap">
-      <input type="text" class="msg-input"/>
-      <div class="msg-input-btn">
+      <input type="text" class="msg-input" ng-model="message.content" ng-keydown="keydown($event)"/>
+      <a href="#" ng-keydown="sendMessage()"><div class="msg-input-btn" ng-click="sendMessage()">
         Yolo
-      </div>
+      </div></a>
   </div>
 </div>
 

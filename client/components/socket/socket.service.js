@@ -5,12 +5,12 @@
 
 angular.module('pupu')
   .factory('Socket', function ($rootScope, $location) {
-    console.log('Hello socket');
     var socket;
     var userId;
     return {
       init: function () {
         socket = io();
+        console.log('Hello socket');
         userId = $rootScope.currentUser._id;
         socket.emit('init', {id: userId});
         this.onNoti();
