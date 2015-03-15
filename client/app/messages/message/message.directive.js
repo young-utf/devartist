@@ -7,9 +7,14 @@ angular.module('pupu')
   .directive('message', function ($rootScope) {
     return {
       restrict: 'E',
-      templateUrl: 'app/messageBox/message.html',
+      templateUrl: 'app/messages/message/message.html',
       link: function (scope, el, attr) {
+        console.log(scope.message);
 
+        scope.toDate = function (date) {
+          var a = new Date(date);
+          return a.toLocaleTimeString();
+        }
       }
     }
-  })
+  });

@@ -6,14 +6,17 @@
 angular.module('pupu')
 	.controller('MessageBoxCtrl', function ($rootScope, $scope, messageService) {
 		$('.navbar').css('margin-bottom', 0);
-    $scope.message = {};
+    $scope.messageBox = {};
+
+    messageService.get(function (data) {
+      $scope.messageBox = data;
+    });
 
     $scope.sendMessage = function () {
       if (!$scope.message.content) {
         console.log('no message');
         return;
       }
-
 
       messageService.send({
         sender: $rootScope.currentUser._id,

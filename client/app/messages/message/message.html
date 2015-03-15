@@ -1,3 +1,9 @@
 <section class="msg-wrap">
-    {{message.content}}
+  <div class="msg-content">
+    {{message.content}}  
+  </div>
+  
+  <div class="msg-date">
+    {{toDate(message.sendedAt)}}
+  </div>
 </section>

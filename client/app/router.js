@@ -27,7 +27,7 @@ angular.module('pupu')
         controller: 'AccountCtrl'
       })
       .when('/messages', {
-        templateUrl: 'app/messageBox/messageBox.html',
+        templateUrl: 'app/messages/messageBox/messageBox.html',
         controller: 'MessageBoxCtrl'
       })
       .when('/', {

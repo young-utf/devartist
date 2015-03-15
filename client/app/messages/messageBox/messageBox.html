@@ -1,6 +1,11 @@
 <div class="msgBox-wrap">
   <div class="msg-list-wrap">
-    <message></message>
+    <div class="msg-list" ng-repeat="message in messageBox">
+      <message></message>
+    </div>
+    <div class="msg-list">
+
+    </div>
   </div>
   <div class="msg-input-wrap">
       <input type="text" class="msg-input" ng-model="message.content" ng-keydown="keydown($event)"/>

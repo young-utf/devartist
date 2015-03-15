@@ -10,6 +10,12 @@ System.out = require('../../common');
 
 exports.get = function (req, res) {
   System.out.println('in message get');
+  Message.find()
+    .where({hidden: false})
+    .populate('sender')
+    .exec(function (err, messages) {
+      res.json(200, messages);
+    });
 }
 
 exports.send = function (req, res) {
