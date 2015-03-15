@@ -10,7 +10,13 @@ angular.module('pupu')
       templateUrl: 'app/messages/message/message.html',
       link: function (scope, el, attr) {
         console.log(scope.message);
-
+        
+        if (scope.message.sender._id === $rootScope.currentUser._id) {
+          el.addClass('mymessage');
+        } else {
+          el.addClass('othermessage');
+        }
+        
         scope.toDate = function (date) {
           var a = new Date(date);
           return a.toLocaleTimeString();

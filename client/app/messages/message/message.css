@@ -1,0 +1,71 @@
+message {
+  display: block;
+  margin: 10px;
+  position: relative;
+}
+
+message.mymessage {
+
+}
+
+.msg-wrap {
+  min-height: 50px;
+}
+
+message.mymessage .msg-ab {
+  text-align: right;
+}
+
+message.mymessage .msg-content {
+  background: lawngreen;
+  border-radius: 50px;
+  max-width: 200px;
+  padding: 10px;
+  font-size: 17px;
+  display: inline-block;
+  text-align: left;
+}
+
+message.othermessage .msg-ab {
+  text-align: left;
+}
+
+message.othermessage .msg-content {
+  background: navajowhite;
+  border-radius: 50px;
+  max-width: 200px;
+  padding: 10px;
+  font-size: 17px;
+  display: inline-block;
+  text-align: left;
+}
+
+message.othermessage .msg-date {
+  font-size: 11px;
+  color: #3c3c3c;
+  text-align: left;
+}
+
+message.mymessage .msg-date {
+  font-size: 11px;
+  color: #3c3c3c;
+  text-align: right;
+}
+
+.tmp-msg-wrap {
+  min-height: 50px;
+}
+
+.tmp-msg-ab {
+  text-align: right;
+}
+
+.tmp-msg-content {
+  background: lightgrey;
+  border-radius: 50px;
+  max-width: 200px;
+  padding: 10px 20px;
+  font-size: 17px;
+  display: inline-block;
+  text-align: left;
+}

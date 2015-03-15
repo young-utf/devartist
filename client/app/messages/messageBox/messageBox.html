@@ -3,15 +3,23 @@
     <div class="msg-list" ng-repeat="message in messageBox">
       <message></message>
     </div>
-    <div class="msg-list">
-
+    <div class="msg-list" ng-if="tmpMessage.content">
+      <section class="tmp-msg-wrap">
+        <div class="tmp-msg-ab">
+          <div class="tmp-msg-content">
+            {{tmpMessage.content}}
+          </div>
+        </div>
+      </section>
     </div>
   </div>
   <div class="msg-input-wrap">
-      <input type="text" class="msg-input" ng-model="message.content" ng-keydown="keydown($event)"/>
-      <a href="#" ng-keydown="sendMessage()"><div class="msg-input-btn" ng-click="sendMessage()">
-        Yolo
-      </div></a>
+      <input type="text" class="msg-input" ng-model="tmpMessage.content" ng-keydown="keydown($event)"/>
+      <a href="#" ng-keydown="sendMessage()">
+        <div class="msg-input-btn" ng-click="sendMessage()">
+          Yolo
+        </div>
+      </a>
   </div>
 </div>
 

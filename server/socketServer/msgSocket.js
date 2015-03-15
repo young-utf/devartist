@@ -21,7 +21,7 @@ module.exports = function (io) {
 
         socket.emit('messageSendSuccess');
 
-        socket.broadcast.emit('messageTo' + target.id, 'got noti');
+        socket.broadcast.emit('newMessage', 'got message');
       });
     });
   });

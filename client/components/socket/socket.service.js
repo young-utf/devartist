@@ -25,6 +25,14 @@ angular.module('pupu')
           console.log('Got Noti');
           $rootScope.$emit('getNoti');
         })
+      },
+
+      sendMessage: function () {
+        socket.emit('sendMsg');
+      },
+
+      onMessage: function (cb) {
+        socket.on('newMessage', cb);
       }
     }
   });
