@@ -4,15 +4,21 @@
 'use strict';
 
 angular.module('pupu')
-	.controller('MessageBoxCtrl', function ($rootScope, $scope, $timeout, messageService, Socket) {
+	.controller('MessageBoxCtrl', function ($rootScope, $scope, $timeout, $document, $window, messageService, Socket) {
 		$('.navbar').css('margin-bottom', 0);
     $scope.messageBox = {};
     $scope.tmpMessage = {};
+    $('footer').hide();
 
-    $timeout(function () {
-      console.log($('.msg-list-wrap'));
-      angular.element($('.msg-list-wrap')).scrollTop(99999999);
-    }, 20);
+    function adjust () {
+      angular.element($window).scrollTop(angular.element('body').height());
+    }
+
+    $rootScope.$on('messageloaded', function () {
+      $timeout(function () {
+        adjust();
+      });
+    });
 
     messageService.get(function (data) {
       $scope.messageBox = data;
@@ -39,6 +45,7 @@ angular.module('pupu')
     }
 
     Socket.onMessage(function () {
+      console.log('on message');
       messageService.get(function (data) {
         $scope.messageBox = data;
       });
@@ -54,5 +61,6 @@ angular.module('pupu')
         console.log('Yolo');
         $scope.sendMessage();
       }
+      adjust();
     }
 	});

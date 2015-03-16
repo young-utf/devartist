@@ -32,7 +32,13 @@ angular.module('pupu')
       },
 
       onMessage: function (cb) {
-        socket.on('newMessage', cb);
+        if (!socket) {
+          this.init();
+          socket.on('newMessage', cb);
+        } else {
+          socket.on('newMessage', cb);
+        }
+
       }
     }
   });

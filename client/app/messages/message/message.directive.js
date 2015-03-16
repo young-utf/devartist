@@ -9,12 +9,14 @@ angular.module('pupu')
       restrict: 'E',
       templateUrl: 'app/messages/message/message.html',
       link: function (scope, el, attr) {
-        console.log(scope.message);
-        
         if (scope.message.sender._id === $rootScope.currentUser._id) {
           el.addClass('mymessage');
         } else {
           el.addClass('othermessage');
+        }
+
+        if (scope.$last) {
+          $rootScope.$emit('messageloaded');
         }
         
         scope.toDate = function (date) {

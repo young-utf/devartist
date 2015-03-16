@@ -1,5 +1,5 @@
 .msgBox-wrap {
-    height: calc(100vh - 110px);
+    height: calc(100% - 110px);
     background: #f2f2f2;
     margin-top: -10px;
 }
@@ -23,6 +23,8 @@
     outline: none;
     font-size: 20px;
     color: #aaa;
+    border: none;
+    border-radius: 0;
 }
 
 .msg-input-btn {
