@@ -5,7 +5,7 @@
 
 angular.module('pupu')
 	.controller('MessageBoxCtrl', function ($rootScope, $scope, $timeout, $location, $document, $window, messageService, Socket) {
-    if ($rootScope.currentUser._id) {
+    if (!$rootScope.currentUser._id) {
       $location.path('/');
     }
 		$('.navbar').css('margin-bottom', 0);
