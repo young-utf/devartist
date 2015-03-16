@@ -17,7 +17,7 @@ message.mymessage .msg-ab {
 }
 
 message.mymessage .msg-content {
-  background: lawngreen;
+  background: #ffcaca;
   border-radius: 50px;
   max-width: 200px;
   padding: 10px;
