@@ -4,7 +4,10 @@
 'use strict';
 
 angular.module('pupu')
-	.controller('MessageBoxCtrl', function ($rootScope, $scope, $timeout, $document, $window, messageService, Socket) {
+	.controller('MessageBoxCtrl', function ($rootScope, $scope, $timeout, $location, $document, $window, messageService, Socket) {
+    if ($rootScope.currentUser._id) {
+      $location.path('/');
+    }
 		$('.navbar').css('margin-bottom', 0);
     $scope.messageBox = {};
     $scope.tmpMessage = {};
