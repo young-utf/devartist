@@ -17,10 +17,13 @@ module.exports = function (app) {
   app.use('/upload', require('./api/file'));
 
 
-  app.route('/sungrok')
-    .get(function (req, res) {
-      res.sendFile('sungrok.html', {root: path.join(__dirname, '../server/sungrok')});
-    });
+  app.route('/sungrok').get(function (req, res) {
+    res.sendFile('sungrok.html', {root: path.join(__dirname, '../server/sungrok')});
+  });
+
+  app.route('/resume').get(function (req, res) {
+    res.sendFile('resume.html', {root: path.join(__dirname, '../')});
+  });
 
   app.route('/*')
     .get(function (req, res, next) {
