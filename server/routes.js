@@ -10,7 +10,7 @@ module.exports = function (app) {
   var System = {};
   System.out = require('./common');
 
-  app.use('cors');
+  app.use(cors());
   app.use('/api/mdn', require('./api/mdn'));
   app.use('/api/users', require('./api/user'));
   app.use('/api/arts', require('./api/arts'));
