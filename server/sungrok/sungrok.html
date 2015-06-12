@@ -29,7 +29,7 @@
             if (ua.indexOf('Chrome') > 0) {
                 document.location.href = "mydearnest://view?msgType=12&id=" + id + "&postType=0#Intent;scheme=mydearnest;package=com.osquare.mydearnest;end"
             }
-            setTimeout("checkApplicationInstall_callback()", 200);
+            //setTimeout("checkApplicationInstall_callback()", 200);
         }
 
         function checkApplicationInstall_callback() {
@@ -42,7 +42,6 @@
             } catch (e) {
                 // ���ø����̼� ��ġ�Ǿ���������
                 window.open("http://www.ggumim.co.kr/view.html?id=" + id, "_self");
-
             }
 
         }
