@@ -1,235 +1,164 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
 <html>
-<head>
-	<title></title>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script>
+        var id = "54eee93c962098ab0822286d";
+        var getParameter = function (param) {
+            var returnValue;
+            var url = location.href;
+            var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+            for (var i = 0; i < parameters.length; i++) {
+                var varName = parameters[i].split('=')[0];
+                if (varName.toUpperCase() == param.toUpperCase()) {
+                    returnValue = parameters[i].split('=')[1];
+                    return decodeURIComponent(returnValue);
+                }
+            }
+        };
 
-  <style>
-    @charset "UTF-8";
-    /* CSS Document */
+        function checkApplicationInstall() {
+            // document.checkframe.location = "mydearnest://move?position=1";
+            document.checkframe.location = "mydearnest://view?msgType=12&id=" + id + "&postType=0";
+            var ua = window.navigator.userAgent;
+            console.log(ua);
+            if (ua.indexOf('Chrome') > 0) {
+                document.location.href = "mydearnest://view?msgType=12&id=" + id + "&postType=0#Intent;scheme=mydearnest;package=com.osquare.mydearnest;end"
+            }
+            setTimeout("checkApplicationInstall_callback()", 200);
+        }
 
-    *{margin:0; padding:0;}
-    /*body{background:#f0ebe0;}*/
+        function checkApplicationInstall_callback() {
+
+            try {
+                // ���ø����̼� ��ġ�Ǿ�����
+                var s = document.checkframe.document.body.innerHTML;
+                window.open("http://www.ggumim.co.kr/view.html?id=" + id, "_self");
+
+            } catch (e) {
+                // ���ø����̼� ��ġ�Ǿ���������
+                window.open("http://www.ggumim.co.kr/view.html?id=" + id, "_self");
+
+            }
+
+        }
+
+    </script>
 
 
-    body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,
-    h6,pre,code,form,fieldset,legend,input,
-    textarea,p,blockquote,th,td{margin:0;padding:0;}
-    img{border:none;vertical-align:top;}
-    fieldset{border:none;}
-    ul,li{list-style:none;}
-    input,select,button,select{vertical-align:middle;}
-    h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
-    address,caption,cite,code,
-    dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+    <!--<script>-->
+        <!--var ios_appstoreUrl = "http://itunes.apple.com/kr/app/id393499958?mt=8";-->
+        <!--var ios_appUrl = "naversearchapp://search?qmenu=voicerecg&version=1";-->
 
-    .all{
-      width: 100%;
-      height: 650px;
-      background: white;
+        <!--//url 은 “naversearchapp://search?qmenu=voicerecg&version=1” -->
+        <!--function runApp_ios() {-->
+            <!--var clickedAt = +new Date;-->
 
-    }
+            <!--var naverAppCheckTimer = setTimeout(function () {-->
+                    <!--if (+new Date - clickedAt < 2000)-->
+                        <!--if (window.confirm("네이버앱 최신 버전이 설치되어 있지 않습니다.\n설치페이지로 이동하시겠습니까?"))-->
+                            <!--location.href = ios_appstoreUrl;-->
+                <!--}-->
+                <!--, 1500);-->
 
-    .top{
-      width: 100%;
-      height: 70px;
-      background: #52b3d9;
-      float: left;
-      font-size: 60px;
-      text-align: center;
-      margin-top: 3%;
-      color: white;
-    }
+            <!--location.href = ios_appUrl;-->
+        <!--}-->
 
-    .section{
-      width: 100%;
-      height: 400px;
-      background: white;
-      float: left;
-      text-align: center;
-    }
+        <!--//여기까지 IOS-->
 
-    .sec1{
-      width: 100%;
-      height: 80%;
-      background: white;
-      float: left;
-    }
 
-    .sec2{
-      width: 100%;
-      height: 20%;
-      background: white;
-      float: left;
-    }
+        <!--//var android_marketUrl = "market://details?id=com.google.zxing.client.android";-->
+        <!--//var android_appUrl = "zxing://scan";-->
+        <!--//var android_intent = "intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end";-->
 
-    button{
-      width: 200px;
-      height: 50px;
-      /*border-width: 0px;
-      border-radius: 5px;*/
-      background: #52b3d9;
-      cursor: pointer;
-      outline: 0;
-      border-color: #81cfe0;
-      color: white;
-      font-size: 20px;
-    }
-
-    .myButton {
-
-      background: linear-gradient(to bottom, #52B3D9 5%, #3C8BAA 100%);
-      /*-moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
-      -webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;*/
-      /*box-shadow: 0px 0px 0px 2px #ADE7FE;*/
-      /*background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7892c2), color-stop(1, #476e9e));
-      background:-moz-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-      background:-webkit-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-      background:-o-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-      background:-ms-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-      background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
-      background-color:#7892c2;*/
-      -moz-border-radius:10px;
-      -webkit-border-radius:10px;
-      border-radius:10px;
-      border:1px solid #3AAAD6;
-      display:inline-block;
-      cursor:pointer;
-      color:white;
-      font-family:arial;
-      font-size:18px;
-      padding:12px 37px;
-      text-decoration:none;
-      text-shadow:0px 1px 0px #283966;
-      outline: 0
-
-    }
-    .myButton:hover {
-      /*box-shadow: 0px 0px 0px 2px #9fb4f2;*/
-      border:1px solid #476e9e;
-
-      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #7892c2));
-      background:-moz-linear-gradient(top, #476e9e 5%, #7892c2 100%);
-      background:-webkit-linear-gradient(top, #476e9e 5%, #7892c2 100%);
-      background:-o-linear-gradient(top, #476e9e 5%, #7892c2 100%);
-      background:-ms-linear-gradient(top, #476e9e 5%, #7892c2 100%);
-      background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#7892c2',GradientType=0);
-      background-color:#476e9e;
-    }
-    .myButton:active {
-      position:relative;
-      top:1px;
-    }
+        <!--var android_marketUrl = "market://details?id=com.gsr.gs25";-->
+        <!--var android_appUrl = "gsbk://calc";-->
+        <!--var android_intent = "intent://calc/#Intent;scheme=gsbk;package=com.bizware.client;end";-->
 
 
 
-    textarea{
-      margin-top: 10px;
-      width: 590px;
-      height: 290px;
-      resize: none;
-      border-width: 2px;
-      border-radius: 5px;
-      padding-top: 10px;
-      padding-left: 10px;
-      border-color: #;
-      outline: 0
+        <!--var timer;-->
+        <!--var heartbeat;-->
+        <!--var iframe_timer;-->
+
+        <!--function clearTimers() {-->
+            <!--clearTimeout(timer);-->
+            <!--clearTimeout(heartbeat);-->
+            <!--clearTimeout(iframe_timer);-->
+        <!--}-->
+
+        <!--function intervalHeartbeat() {-->
+            <!--if (document.webkitHidden || document.hidden) {-->
+                <!--clearTimers();-->
+            <!--}-->
+        <!--}-->
+
+        <!--function tryIframeApproach() {-->
+            <!--var iframe = document.createElement("iframe");-->
+            <!--iframe.style.border = "none";-->
+            <!--iframe.style.width = "1px";-->
+            <!--iframe.style.height = "1px";-->
+            <!--iframe.onload = function () {-->
+                <!--document.location = android_marketUrl || 'http://naver.com';-->
+            <!--};-->
+            <!--iframe.src = android_appUrl;-->
+            <!--document.body.appendChild(iframe);-->
+        <!--}-->
+
+        <!--function tryWebkitApproach() {-->
+            <!--document.location = android_appUrl;-->
+            <!--timer = setTimeout(function () {-->
+                <!--document.location = android_marketUrl;-->
+            <!--}, 2500);-->
+        <!--}-->
+
+        <!--function useIntent() {-->
+            <!--document.location = android_intent;-->
+        <!--}-->
+
+        <!--function launch_app_or_alt_url(el) {-->
+            <!--heartbeat = setInterval(intervalHeartbeat, 200);-->
+            <!--if (navigator.userAgent.match(/Chrome/)) {-->
+                <!--useIntent();-->
+            <!--} else if (navigator.userAgent.match(/Firefox/)) {-->
+                <!--tryWebkitApproach();-->
+                <!--iframe_timer = setTimeout(function () {-->
+                    <!--tryIframeApproach();-->
+                <!--}, 1500);-->
+            <!--} else {-->
+                <!--tryIframeApproach();-->
+            <!--}-->
+        <!--}-->
 
 
-    }
 
 
-    .footer{
-      width: 100%;
-      height: 50px;
-      float: left;
-      background: #6c7a89;
-      line-height: 50px;
-      text-align: center;
-      color: white;
-    }
 
-    .footer a{color:white;
-      text-decoration: none;
+        <!--function runApp() {-->
+            <!--var devName = OSInfoDev();-->
+            <!--if (devName.indexOf("MacOS") != -1) {-->
+                <!--runApp_ios();-->
+            <!--}-->
+            <!--else if (devName.indexOf("Android") != -1) {-->
+                <!--launch_app_or_alt_url($(this));-->
+                <!--event.preventDefault();-->
+            <!--}-->
 
-    }
-
-    .footer a:hover{ color: #ecf0f1;
-      text-decoration: none;
-
-
-    }
-
-    .result {
-      font-size: 20px;
-      text-align: center;
-    }
-
-  </style>
+            <!--$.mobile.loading('show', {-->
+                <!--text: "Demo APP을 실행합니다. 잠시만 기다리세요.",-->
+                <!--textVisible: true,-->
+                <!--theme: "b",-->
+                <!--html: ""-->
+            <!--});-->
+        <!--}-->
+    <!--</script>-->
 </head>
-<body>
- <div class="all">
+<body onload="checkApplicationInstall();">
 
-  <div class="top"> 
-    <span>UTF-8</span>
-  </div>
-
-  <div class="section">
-  <!--  <input type="text" size="100" value="성록아입력해라"> -->
-   <div class="sec1">
-    <textarea placeholder="성록아 입력해라" id="text"></textarea>
-   </div>
-   <div class="result">
-     result = <span id="result"></span>
-   </div>
-   <div class="sec2">
-    <a href="#" class="myButton" onclick="cal();">눌러봐 성록아</a>
-   </div>
-  </div>
-
-   <div class="footer">
-
-    <a href="http://www.facebook.com/profile.php?id=100003158300143">@
-    KO</a>
-
-    /
-
-    <a href="http://www.facebook.com/young.moon.925">@YoungMOOOON </a>
-
-   </div>
-
-
-   <script>
-     var result = false;
-     var text = function () {
-       var result = [];
-       var textarea = document.getElementById('text').value.trim();
-       textarea = textarea.split(/[\s,]+/);
-      
-       console.log(textarea);
-       var collector = function (t) {
-         if (t == "The" || t == "the" || t == "a" || t == "an" || t =='.' || t == "A") {
-           return;
-         } else {
-           result.push(t);
-           return;
-         }
-       }
-
-       textarea.forEach(collector);
-       console.log(result.length);
-       return result.length;
-
-     }
-
-     window.cal = function () {
-       document.getElementById('result').innerText = text();
-     }
-   </script>
-
-
- </div>
+<iframe id="checkframe" name="checkframe" width="0" height="0"></iframe>
 </body>
 </html>
