@@ -29,3 +29,9 @@ exports.page = function (req, res) {
         res.json(200);
     });
 };
+
+exports.getAll = function (req, res) {
+    Count.find({}, function (err, counts) {
+        res.json(counts);
+    });
+};
