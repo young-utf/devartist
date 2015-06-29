@@ -9,6 +9,10 @@ var Count = require('./count.model');
 exports.index = function (req, res) {
     console.log('in mdn index');
     var today = req.query.today;
+    if (!today) {
+    	res.json(200);
+        return;
+    }
 
     Count.find({date: today}, function (err, counts) {
         if (counts.length === 0) {
@@ -28,6 +32,10 @@ exports.index = function (req, res) {
 exports.page = function (req, res) {
     console.log('in mdn page');
     var today = req.query.today;
+    if (!today) {
+        res.json(200);
+        return;
+    }
 
     Count.find({date: today}, function (err, counts) {
         if (counts.length === 0) {
