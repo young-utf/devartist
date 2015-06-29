@@ -7,26 +7,40 @@ var Count = require('./count.model');
 
 
 exports.index = function (req, res) {
-    var newCount =  new Count({
-        sort: 'general',
-        published: new Date()
-    });
+    console.log('in mdn index');
+    var today = req.query.today;
 
-    newCount.save(function (err, count) {
-        console.log(count);
-        res.json(200);
+    Count.find({date: today}, function (err, counts) {
+        if (counts.length === 0) {
+            var newCount = createCount(today, true);
+
+            newCount.save(function (err, count) {
+                res.json(200);
+            });
+        } else {
+            Count.update({date:today}, {$inc: {"count.general": 1}}, function (err, count) {
+                res.json(200);
+            });
+        }
     });
 };
 
 exports.page = function (req, res) {
-    var newCount = new Count({
-        sort: 'page',
-        published: new Date()
-    });
+    console.log('in mdn page');
+    var today = req.query.today;
 
-    newCount.save(function (err, count) {
-        console.log(count);
-        res.json(200);
+    Count.find({date: today}, function (err, counts) {
+        if (counts.length === 0) {
+            var newCount = createCount(today, false);
+
+            newCount.save(function (err, count) {
+                res.json(200);
+            });
+        } else {
+            Count.update({date:today}, {$inc: {"count.general": 1}}, function (err, count) {
+                res.json(200);
+            });
+        }
     });
 };
 
@@ -35,3 +49,15 @@ exports.getAll = function (req, res) {
         res.json(counts);
     });
 };
+
+function  createCount (today, gen) {
+    // gen true 면 general 아니면 페이지
+
+    return new Count({
+        count: {
+            general: gen ? 1 : 0,
+            page: gen ? 0 : 1
+        },
+        date : today
+    });
+}

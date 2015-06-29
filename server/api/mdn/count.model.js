@@ -8,13 +8,19 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var CountSchema = new Schema({
-    sort: {
-        type: String
+    count: {
+        general: {
+            type: Number,
+            default: 0
+        },
+        page: {
+            type: Number,
+            default: 0
+        }
     },
 
-    published: {
-        type: Date,
-        default: Date.now
+    date: {
+        type: String
     }
 });
 
