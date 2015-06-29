@@ -37,7 +37,7 @@ exports.page = function (req, res) {
                 res.json(200);
             });
         } else {
-            Count.update({date:today}, {$inc: {"count.general": 1}}, function (err, count) {
+            Count.update({date:today}, {$inc: {"count.page": 1}}, function (err, count) {
                 res.json(200);
             });
         }
