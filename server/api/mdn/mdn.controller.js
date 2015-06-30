@@ -74,9 +74,12 @@ exports.create = function (req, res) {
 };
 
 exports.getAll = function (req, res) {
-    Count.find({}, function (err, counts) {
-        res.json(counts);
-    });
+    Count
+        .find({})
+        .sort({date: -1})
+        .exec(function (err, counts) {
+            res.json(counts);
+        });
 };
 
 function  createCount (today, gen) {
