@@ -21,6 +21,10 @@ var CountSchema = new Schema({
 
     date: {
         type: String
+    },
+
+    dateObj: {
+        type: Date
     }
 });
 

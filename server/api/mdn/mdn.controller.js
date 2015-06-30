@@ -90,6 +90,7 @@ function  createCount (today, gen) {
             general: gen ? 1 : 0,
             page: gen ? 0 : 1
         },
-        date : today
+        date : today,
+        dateObj: new Date(today)
     });
 }
