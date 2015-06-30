@@ -80,8 +80,6 @@ exports.update = function (req, res) {
 
             });
         });
-
-        res.json(200);
     });
 };
 
