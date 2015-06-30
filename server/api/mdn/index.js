@@ -12,5 +12,6 @@ router.get('/', controller.index);
 router.get('/page', controller.page);
 router.get('/getAll', controller.getAll);
 router.get('/create', controller.create);
+router.put('/update', controller.update);
 
 module.exports = router;

@@ -73,6 +73,18 @@ exports.create = function (req, res) {
     });
 };
 
+exports.update = function (req, res) {
+    Count.find({}, function (err, counts) {
+        counts.map(function (count) {
+            Count.findAndUpdateById(count._id, {$set: {dateObj: new Date(count.date)}}, function (err, done) {
+
+            });
+        });
+
+        res.json(200);
+    });
+};
+
 exports.getAll = function (req, res) {
     Count
         .find({})
