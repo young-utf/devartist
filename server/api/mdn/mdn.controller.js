@@ -75,12 +75,15 @@ exports.create = function (req, res) {
 
 exports.update = function (req, res) {
     Count.find({}, function (err, counts) {
-        counts.map(function (count) {
-            Count.findAndUpdateById(count._id, {$set: {dateObj: new Date(count.date)}}, function (err, done) {
-
-            });
-        });
+        for (var i = 0; i < counts.length; i++) {
+            console.log(counts[i]);
+            Count.findAndUpdateById(counts[i]._id, {$set: {dateObj: new Date(counts[i].date)}}).exec();
+        }
     });
+
+    setTimeout(function () {
+        res.json(200);
+    }, 5000);
 };
 
 exports.getAll = function (req, res) {
