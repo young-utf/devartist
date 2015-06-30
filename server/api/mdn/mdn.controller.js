@@ -89,7 +89,7 @@ exports.update = function (req, res) {
 exports.getAll = function (req, res) {
     Count
         .find({})
-        .sort({date: -1})
+        .sort({dateObj: 1})
         .exec(function (err, counts) {
             res.json(counts);
         });
