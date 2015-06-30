@@ -60,7 +60,7 @@ exports.create = function (req, res) {
     var newCount = new Count({
         date: date,
         count: {
-            general general,
+            general: general,
             page: page
         }
     });
