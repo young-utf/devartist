@@ -77,7 +77,7 @@ exports.update = function (req, res) {
     Count.find({}, function (err, counts) {
         for (var i = 0; i < counts.length; i++) {
             console.log(counts[i]);
-            Count.findAndUpdateById(counts[i]._id, {$set: {dateObj: new Date(counts[i].date)}}).exec();
+            Count.findByIdAndUpdate(counts[i]._id, {$set: {dateObj: new Date(counts[i].date)}}).exec();
         }
     });
 
