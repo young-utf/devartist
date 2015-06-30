@@ -52,6 +52,25 @@ exports.page = function (req, res) {
     });
 };
 
+exports.create = function (req, res) {
+    var date = req.query.today,
+        general = req.query.general,
+        page = req.query.page;
+
+    var newCount = new Count({
+        date: date,
+        count: {
+            general general,
+            page: page
+        }
+    });
+
+    newCount.save(function (err, count) {
+        console.log(count);
+        res.json(200);
+    });
+};
+
 exports.getAll = function (req, res) {
     Count.find({}, function (err, counts) {
         res.json(counts);

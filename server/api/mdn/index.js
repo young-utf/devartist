@@ -11,5 +11,6 @@ var router = express.Router();
 router.get('/', controller.index);
 router.get('/page', controller.page);
 router.get('/getAll', controller.getAll);
+router.post('/create', controller.create);
 
 module.exports = router;
