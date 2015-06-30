@@ -58,11 +58,11 @@ exports.create = function (req, res) {
         page = req.query.page;
 
     var newCount = new Count({
-        date: date,
         count: {
             general: general,
             page: page
-        }
+        },
+        date: date
     });
 
     newCount.save(function (err, count) {
