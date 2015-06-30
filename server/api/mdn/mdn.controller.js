@@ -53,6 +53,8 @@ exports.page = function (req, res) {
 };
 
 exports.create = function (req, res) {
+    console.log(req.query);
+
     var date = req.query.today,
         general = req.query.general,
         page = req.query.page;
